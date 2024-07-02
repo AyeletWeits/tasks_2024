@@ -21,11 +21,16 @@ namespace tasks
         {
             Session["mail"] = "visit";
             Session["name"] = "visit";
+            Session["admin"] = "no";
+            Session["code"] = "none";
         }
         void Session_end(object sender, EventArgs e)
         {
             Session["mail"] = "visit";
             Session["name"] = "visit";
+            Session["admin"] = "no";
+            Session["code"] = "none";
+
         }
     }
 }
