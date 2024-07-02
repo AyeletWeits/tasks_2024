@@ -16,7 +16,8 @@ namespace tasks
                 string password = Request.Form["userPass"];
                 string name = Request.Form["userName"];
                 string mail = Request.Form["userMail"];
-                string addUser = $"insert into users values(N'{password}','{name}','{mail}')";
+                int userAdmin =int.Parse(Request.Form["userAdmin"]);
+                string addUser = $"insert into workers values(N'{password}','{name}','{mail}',{userAdmin})";
                 Helper.DoQuery("tasks.mdf", addUser);
                 Session["mail"] = mail;
                 Session["name"] = name;

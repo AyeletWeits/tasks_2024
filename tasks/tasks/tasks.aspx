@@ -43,7 +43,8 @@
     <form id="form1" runat="server">
         <div>
             <h1>רשימת מטלות</h1>
-            <button name="viewTasks">הצגת כל המטלות</button><br />
+            <button name="viewTasks">הצגת כל המטלות</button>
+            <%=menuManager%><br />
             <label>הכנס מטלה</label>
             <input type="text" name="task" id="insert" width="100" />
             <br />

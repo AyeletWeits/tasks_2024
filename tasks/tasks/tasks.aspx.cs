@@ -10,9 +10,13 @@ namespace tasks
 {
     public partial class tasks : System.Web.UI.Page
     {
-        public string msg = "", tasksList = "";
+        public string msg = "", tasksList = "", menuManager = "", msgAdmin = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == "yes")
+            {
+                menuManager += "<button name='viewWorkers'>הצגת משימות העובדים שלי</button>";
+            }
             if (Request.Form["btnAdd"] != null)
             {
                 string task = Request.Form["task"];
@@ -41,7 +45,29 @@ namespace tasks
                     msg = "לא קיימות מטלות";
 
             }
+            //הצגת מטלות עובדים למנהל
+            if (Request.Form["viewWorkers"] != null)
+            {
 
+                DataTable table = functions.ReturnTasksWorkers(int.Parse(Session["code"].ToString()));
+                if (table != null)
+                {
+                    if (table.Rows.Count == 0)
+                        msgAdmin = "לא קיימות מטלות";
+                    else
+                    {
+                        for (int i = 0; i < table.Rows.Count; i++)
+                        {
+                            tasksList += $"<li class='task'><h2>{table.Rows[i]["name"]}</h2><h2>{table.Rows[i]["task"]}</h2><h2>{table.Rows[i]["date"]}</h2></li>";
+                        }
+                    }
+                }
+                else
+                    msgAdmin = "לא קיימות מטלות";
+            }
+          
         }
+
     }
+}
 }
