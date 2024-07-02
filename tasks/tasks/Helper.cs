@@ -18,7 +18,7 @@ public class Helper
 	public static SqlConnection ConnectToDb(string fileName)
 	{
 
-        string connString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =D:\קבצי משתמש\ASUS\Desktop\tasks\tasks\App_Data\tasks.mdf; Integrated Security = True; Connect Timeout = 30";
+        string connString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =C:\Users\ASUS\tasks_2024\tasks\tasks\App_Data\tasks.mdf; Integrated Security = True; Connect Timeout = 30";
 
         SqlConnection conn = new SqlConnection(connString);
         return conn;

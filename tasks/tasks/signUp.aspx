@@ -17,6 +17,8 @@
             <input type="text" name="userName" /><br />
             <label>מייל</label>
             <input type="email" name="userMail" /><br />
+            <label>מס' מנהל</label>
+            <input type="number" name="userAdmin" /><br />
             <input type="submit" name="sub" />
         </div>
     </form>
