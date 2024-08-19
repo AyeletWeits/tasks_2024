@@ -11,7 +11,10 @@ namespace tasks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Form["signIn"] != null)
+                Response.Redirect("signIn.aspx");
+            if (Request.Form["signUp"] != null)
+                Response.Redirect("signUp.aspx");
         }
     }
 }

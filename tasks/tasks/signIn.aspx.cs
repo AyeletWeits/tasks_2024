@@ -43,15 +43,16 @@ namespace tasks
                         DataTable table = Helper.ExecuteDataTable(db, selectUser);
                         int length = table.Rows.Count;
                         if (length == 0)
-                            msg += $"<div><h2>לא קיים במערכת</h2><a href='signUp.aspx'>להרשמה</a></div>";
+                            msg += $"<div><h2>does not exist in the system</h2><a href='signUp.aspx'>sign up</a></div>";
                         else
                         {
+                            Session["admin"] = "no";
                             Session["mail"] = table.Rows[0]["mail"];
                             Session["name"] = table.Rows[0]["name"];
                             Response.Redirect("tasks.aspx");
                         }
                     }
-                    msg += $"<div><h2>לא קיים במערכת</h2><a href='signUp.aspx'>להרשמה</a></div>";
+                    msg += $"<div><h2>does not exist in the system</h2><a href='signUp.aspx'>sign up</a></div>";
                 }
 
             }
